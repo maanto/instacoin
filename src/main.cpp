@@ -29,7 +29,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x");
+uint256 hashGenesisBlock("0x3594e8c35dc3cdd29ae024ecd9150f144393ade1fb5a387245bddea5f0d35595");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -1974,23 +1974,10 @@ FILE* AppendBlockFile(unsigned int& nFileRet)
 }
 
 /*
-Searching for genesis block...
-nonce 00000000: hash = a00c2babee65c86e6b6cd059248edddff72227a96efa3518f614d40b3721d17b (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00001000: hash = d516ef8e1e0e7eeee60b3f8340550378f839da400cf3df00360d58d08ebf3407 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00002000: hash = 3c1ca0f1be218423bf94fabf6813baaebddca0a00a47780cebffba18c8f5ddeb (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00003000: hash = c79eb6a04d7a89879f82a1ce4d2674b982d5a8e0c4c9502219e74a6b0b6b52f8 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00004000: hash = 51fd8142e93f6b43716197cc06b94908e329392fd7a42cc693d9d36c7b7aed12 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00005000: hash = 50f6dc17c005cce4262039f809b9cdb355986d565227e90a43ef8968c3c2e783 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00006000: hash = cb1500efc5f3e7c8c5083c0aa3e55c11f919d8b42e8deb12f4a7db0f8a82d7da (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00007000: hash = 67af6a9b85b67e348d18d8a51d5c8e20bab34d012ac87ff742d8a9ddf10c2e21 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00008000: hash = ed025e7c834990b5a8d89324d69bf88a38d333fb0da7966fcba4c15a68a4e5f8 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 00009000: hash = 9537802f8f98903d2b7cbe8adc98681acf8afe44f9c172604968089753ed5b09 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 0000A000: hash = 197bffd0e8d7ecede7562107ff36ffd7174c3c9721d197ca6b743ccdfc389863 (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-nonce 0000B000: hash = e5fcac4c155311a54465a84165f21a4fbaa033745a3be99952c76a2002fa775d (target = 00000ffff0000000000000000000000000000000000000000000000000000000)
-block.nTime = 1377480324 
-block.nNonce = 48637 
-block.GetHash = bfdcc515eb8eeb87e14d2477e534a76185cc85c6b54cacdf0072ea6df18147de
-CBlock(hash=bfdcc515eb8eeb87e14d, PoW=00000861fd6e29079eb4, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=11dc5d6a9f, nTime=1377480324, nBits=1e0ffff0, nNonce=48637, vtx=1)
+block.nTime = 1377484614 
+block.nNonce = 273298 
+block.GetHash = 3594e8c35dc3cdd29ae024ecd9150f144393ade1fb5a387245bddea5f0d35595
+CBlock(hash=3594e8c35dc3cdd29ae0, PoW=00000777d43ef68b4149, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=11dc5d6a9f, nTime=1377484614, nBits=1e0ffff0, nNonce=273298, vtx=1)
   CTransaction(hash=11dc5d6a9f, ver=1, vin.size=1, vout.size=1, nLockTime=0)
     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d010436496e737461436f696e202d20546865206661737465737420636f696e20696e20686973746f727921202d4175672032352c2032303133)
     CTxOut(error)
@@ -2038,9 +2025,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1377480324; //epochtime
+        block.nTime    = 1377484614; //epochtime
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 48637;
+        block.nNonce   = 273298;
 
         if (fTestNet)
         {
@@ -2055,7 +2042,7 @@ bool LoadBlockIndex(bool fAllowNew)
         assert(block.hashMerkleRoot == uint256("0x11dc5d6a9ff45c50395f25f50e2c53a1c5431621096c28bbdded120f4e2410a8"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
