@@ -1,5 +1,15 @@
 InstaCoin (INS)
 
+============
+WARNING: 
+DO NOT USE THIS COIN!
+It has been retired.
+I am in the process of re-launching with a new source.
+I am not supporting this coin any longer.
+You have been warned. -maanto; Aug 29, 2013
+============
+
+
 Only 1 million coins total.
 
 1 block every 1 minute.
